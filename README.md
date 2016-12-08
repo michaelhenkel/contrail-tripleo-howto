@@ -1,7 +1,7 @@
 # contrail-tripleo-howto
 
 
-# Prepare undercloud installatio on the host
+# Prepare undercloud installation on the host
 
 ## Add stack user
 ```
@@ -33,7 +33,7 @@ export UNDERCLOUD_NODE_MEM=16384
 export UNDERCLOUD_NODE_DISK=100
 ```
 
-## create and start undercloud VM
+## Create and start undercloud VM
 ```
 instack-virt-setup
 ```
@@ -43,7 +43,7 @@ instack-virt-setup
 virsh net-dhcp-leases default
 ```
 
-### only needed for multihost setup ###
+### Only needed for multihost setup ###
 ## Read the doc (https://github.com/michaelhenkel/tripleo-fabric-ansible) !!!
 ## Prepare overcloud VMs (this can be done from any host having network access to the KVM hosts)
 ```
@@ -81,17 +81,17 @@ tar xvf ironic-python-agent-10.0-RC-1-2016-11-30.1.tar
 tar xvf overcloud-full-10.0-RC-1-2016-11-30.1.tar
 cd ..
 ```
-## uplpoad images to glance
+## Uplpoad images to glance
 ```
 openstack overcloud image upload --image-path /home/stack/images/
 ```
 
-## import overcloud VMs to ironic 
-### single host:
+## Import overcloud VMs to ironic 
+### Single host:
 ```
 openstack baremetal import instackenv.json
 ```
-### multi host:
+### Multi host:
 ```
 openstack baremetal import instackenv_multi.json
 ```
@@ -114,33 +114,33 @@ tar czvf ~/tripleo-heat-templates/environments/contrail/artifacts/puppet-modules
 cd ..
 ```
 
-## create contrail repo
+## Create contrail repo
 ```
 cd /var/www/html
 mkdir contrail-rhel
 cd contrail-rhel
 ```
-### get contrail install packages 
+### Get contrail install packages 
 ```
 wget http://10.84.5.120/github-build/R3.2/LATEST/redhat70/newton/contrail-install-packages_3.2.0.0-9-newton.tgz
 tar zxvf contrail-install-packages_3.2.0.0-9-newton.tgz
 ```
 
-## upload artifacts to swift
+## Upload artifacts to swift
 ```
 cd ~/tripleo-heat-templates/environments/contrail/artifacts
 upload-swift-artifacts -f puppet-modules.tgz -f contrail-repo.tgz -f vrouter.tgz -f puppetconf.tgz
 ```
 
-### currently there is a bug in the artifacts deploy script so we need this workaround
+### Currently there is a bug in the artifacts deploy script so we need this workaround
 ```
 sed -i "s#'##g" ~/.tripleo/environments/deployment-artifacts.yaml
 ```
 
 # Overcloud Configuration
-## adjust number of nodes (do not oversubscribe!), ntp and dns server in ~/tripleo-heat-templates/environments/contrail/contrail-services.yaml
-## adjust subnetting in ~/tripleo-heat-templates/environments/contrail/contrail-net.yaml
-## set rhel registration in ~/tripleo-heat-templates/rhel-registration/environment-rhel-registration.yaml (set rhel_reg_password, rhel_reg_pool_id and rhel_reg_user)
+## Adjust number of nodes (do not oversubscribe!), ntp and dns server in ~/tripleo-heat-templates/environments/contrail/contrail-services.yaml
+## Adjust subnetting in ~/tripleo-heat-templates/environments/contrail/contrail-net.yaml
+## Set rhel registration in ~/tripleo-heat-templates/rhel-registration/environment-rhel-registration.yaml (set rhel_reg_password, rhel_reg_pool_id and rhel_reg_user)
 
 # Deploy overcloud
 ```
@@ -156,7 +156,7 @@ openstack overcloud deploy --templates tripleo-heat-templates/ \
   --libvirt-type qemu
 ```
 
-## switch from undercloud to overcloud
+## Switch from undercloud to overcloud
 ```
 source overcloudrc
 ```
