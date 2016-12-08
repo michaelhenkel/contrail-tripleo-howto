@@ -44,8 +44,8 @@ virsh net-dhcp-leases default
 ```
 
 ### Only needed for multihost setup ###
-## Read the doc (https://github.com/michaelhenkel/tripleo-fabric-ansible) !!!
-## Prepare overcloud VMs (this can be done from any host having network access to the KVM hosts)
+Read the doc (https://github.com/michaelhenkel/tripleo-fabric-ansible) !!!    
+Prepare overcloud VMs (this can be done from any host having network access to the KVM hosts)    
 ```
 git clone https://github.com/michaelhenkel/tripleo-fabric-ansible
 vi tripleo-fabric-ansible/inventory/hosts # <- add your KVM hosts, specify the interface and path to id_rsa
