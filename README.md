@@ -77,22 +77,22 @@ tar xvf ironic-python-agent-10.0-RC-1-2016-11-30.1.tar
 tar xvf overcloud-full-10.0-RC-1-2016-11-30.1.tar
 cd ..
 ```
-## Uplpoad images to glance
+## Upload images to glance
 ```
 openstack overcloud image upload --image-path /home/stack/images/
 ```
 
 ## Import overcloud VMs to ironic 
-### Single host:
+### Single host
 ```
 openstack baremetal import instackenv.json
 ```
-### Multi host:
+### Multi host
 ```
 openstack baremetal import instackenv_multi.json
 ```
 
-## start vm introspection
+## Start vm introspection
 ```
 openstack baremetal introspection bulk start
 ```
@@ -111,12 +111,13 @@ cd ..
 ```
 
 ## Create contrail repo
+### Create repo directory
 ```
 cd /var/www/html
 mkdir contrail-rhel
 cd contrail-rhel
 ```
-### Get contrail install packages 
+### Get contrail install package and extract it
 ```
 wget http://10.84.5.120/github-build/R3.2/LATEST/redhat70/newton/contrail-install-packages_3.2.0.0-9-newton.tgz
 tar zxvf contrail-install-packages_3.2.0.0-9-newton.tgz
@@ -134,9 +135,9 @@ sed -i "s#'##g" ~/.tripleo/environments/deployment-artifacts.yaml
 ```
 
 # Overcloud Configuration
-## Adjust number of nodes (do not oversubscribe!), ntp and dns server in ~/tripleo-heat-templates/environments/contrail/contrail-services.yaml
-## Adjust subnetting in ~/tripleo-heat-templates/environments/contrail/contrail-net.yaml
-## Set rhel registration in ~/tripleo-heat-templates/rhel-registration/environment-rhel-registration.yaml (set rhel_reg_password, rhel_reg_pool_id and rhel_reg_user)
+Adjust number of nodes (do not oversubscribe!), ntp and dns server in ~/tripleo-heat-templates/environments/contrail/contrail-services.yaml    
+Adjust subnetting in ~/tripleo-heat-templates/environments/contrail/contrail-net.yaml    
+Set rhel registration in ~/tripleo-heat-templates/rhel-registration/environment-rhel-registration.yaml (set rhel_reg_password, rhel_reg_pool_id and rhel_reg_user)    
 
 # Deploy overcloud
 ```
