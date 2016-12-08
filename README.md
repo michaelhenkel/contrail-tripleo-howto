@@ -43,7 +43,7 @@ instack-virt-setup
 virsh net-dhcp-leases default
 ```
 
-### Only needed for multihost setup ###
+## Multihost setup (when deploying a single host setup this step can be skipped)
 Read the doc (https://github.com/michaelhenkel/tripleo-fabric-ansible) !!!    
 Prepare overcloud VMs (this can be done from any host having network access to the KVM hosts)    
 ```
@@ -52,10 +52,6 @@ vi tripleo-fabric-ansible/inventory/hosts # <- add your KVM hosts, specify the i
 ansible-playbook -i inventory playbooks/environment_creator.yml
 scp /tmp/instackenv.json root@<undercloud VM IP>/home/stack/instackenv_multi.json
 ```
-### end ###
-
-
-
 # Undercloud setup
 
 ## Log into undercloud vm
@@ -70,9 +66,9 @@ openstack undercloud install
 ```
 
 ## Get overcloud images
-### Go to https://access.redhat.com/downloads/content/220/ver=/rhel---7/7/x86_64/product-software
-### Download Ironic Python Agent Image for RHOSP 10.0 RC-1 (ironic-python-agent-10.0-RC-1-2016-11-30.1.tar)
-### Download Overcloud Image for RHOSP 10.0 RC-1 (overcloud-full-10.0-RC-1-2016-11-30.1.tar)
+Go to https://access.redhat.com/downloads/content/220/ver=/rhel---7/7/x86_64/product-software    
+Download Ironic Python Agent Image for RHOSP 10.0 RC-1 (ironic-python-agent-10.0-RC-1-2016-11-30.1.tar)    
+Download Overcloud Image for RHOSP 10.0 RC-1 (overcloud-full-10.0-RC-1-2016-11-30.1.tar)    
 ```
 mkdir images
 mv ironic-python-agent-10.0-RC-1-2016-11-30.1.tar overcloud-full-10.0-RC-1-2016-11-30.1.tar images
