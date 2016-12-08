@@ -148,7 +148,7 @@ openstack overcloud deploy --templates tripleo-heat-templates/ \
   -e tripleo-heat-templates/environments/network-isolation.yaml \
   -e tripleo-heat-templates/environments/contrail/contrail-net.yaml \
   -e tripleo-heat-templates/environments/network-management.yaml \
-  -e environment-rhel-registration.yaml \
+  -e tripleo-heat-templates/rhel-registration/environment-rhel-registration.yaml \
   -e tripleo-heat-templates/rhel-registration/rhel-registration-resource-registry.yaml \
   --libvirt-type qemu
 ```
