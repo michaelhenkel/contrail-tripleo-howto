@@ -1,16 +1,15 @@
 # contrail-tripleo-howto
 
 
-# Prepare undercloud installation on the host
+# Prepare undercloud (instack) installation
 
-## Add stack user
-```
-sudo useradd stack
-sudo passwd stack  # specify a password
-echo "stack ALL=(root) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/stack
-sudo chmod 0440 /etc/sudoers.d/stack
-su - stack
-```
+Undercloud can be installed in a VM or on a physical server    
+
+## Virtual undercloud
+
+Get the KVM Guest Image (rhel-guest-image-7.3-35.x86_64.qcow2)    
+from https://access.redhat.com/downloads/content/69/ver=/rhel---7/7.3/x86_64/product-software
+
 
 ## Get undercloud repos
 ```
