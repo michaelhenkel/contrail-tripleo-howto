@@ -42,7 +42,7 @@ upload-swift-artifacts -f puppet-modules.tgz
 ```
 
 # Overcloud Configuration
-Adjust number of nodes (do not oversubscribe!), ntp, dns server and other parameters in ~/tripleo-heat-templates/environments/contrail/contrail-services.yaml  
+Adjust number of nodes (do not oversubscribe!), ntp, dns server and other parameters (contrail repo url must match what has been configured in 'Create contrail repo')  in ~/tripleo-heat-templates/environments/contrail/contrail-services.yaml  
 Adjust subnetting in ~/tripleo-heat-templates/environments/contrail/contrail-net.yaml    
 Set rhel registration in ~/tripleo-heat-templates/rhel-registration/environment-rhel-registration.yaml (set rhel_reg_password, rhel_reg_pool_id and rhel_reg_user)    
 
