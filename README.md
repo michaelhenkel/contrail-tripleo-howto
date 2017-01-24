@@ -1,7 +1,7 @@
 # contrail-tripleo-howto
 
 
-# Prepare undercloud (instack) installation
+# Prepare undercloud installation
 
 Follow documentation on    
 https://access.redhat.com/documentation/en/red-hat-openstack-platform/10/paged/director-installation-and-usage/chapter-4-installing-the-undercloud    
